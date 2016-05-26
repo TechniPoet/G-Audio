@@ -21,7 +21,7 @@ namespace GAudio
 			{
 				return _gain;
 			}
-			private set
+			protected set
 			{
 				_gain = value;
 			}
@@ -50,12 +50,8 @@ namespace GAudio
 			{
 				return _gain;
 			}
-<<<<<<< Updated upstream
-			private set
-=======
             
 			protected set
->>>>>>> Stashed changes
 			{
                 
 				_prevGain = _gain;

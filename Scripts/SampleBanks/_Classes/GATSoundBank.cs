@@ -18,12 +18,9 @@ namespace GAudio
 {
 	public class GATSoundBank : ScriptableObject
 	{
-<<<<<<< Updated upstream
-=======
 		public delegate void Finished(Dictionary<string, GATData> dict);
 		public Finished loadFinished;
 
->>>>>>> Stashed changes
 		public int SampleRate{ get{ return _sampleRate; } }
 		[ SerializeField ]
 		int _sampleRate;
@@ -237,10 +234,7 @@ namespace GAudio
 		IEnumerator LoadSampleFromResources( GATDataAllocationMode mode, GATSampleInfo info, Dictionary< string, GATData > loadedSamples )
 		{
 			AudioClip clip;
-<<<<<<< Updated upstream
-=======
 			/*
->>>>>>> Stashed changes
 			#if UNITY_EDITOR
 			if( Application.isPlaying ) //GZComment: simplifies memory management when trying things out in the editor, where performance is not crucial.
 			{
@@ -258,12 +252,6 @@ namespace GAudio
 			}
 			
 			#else
-<<<<<<< Updated upstream
-			clip = Resources.Load( info.PathInResources ) as AudioClip;
-			#endif
-			
-			
-=======
 			*/
 			clip = Resources.Load( info.PathInResources ) as AudioClip;
 			//#endif
@@ -272,7 +260,6 @@ namespace GAudio
 			{
 				yield return null;
 			}
->>>>>>> Stashed changes
 			if( info.NumChannels == 1 )
 			{
 				GATData data;
@@ -290,20 +277,14 @@ namespace GAudio
 			}
 			clipsLoaded++;
 			
-<<<<<<< Updated upstream
-=======
 			
->>>>>>> Stashed changes
 			#if UNITY_EDITOR
 			if( Application.isPlaying )
 			{
 				Resources.UnloadAsset( ( Object )clip );
 			}
 			#else
-<<<<<<< Updated upstream
-=======
 			
->>>>>>> Stashed changes
 			Resources.UnloadAsset( clip );
 			#endif
 		}

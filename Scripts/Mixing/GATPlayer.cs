@@ -773,10 +773,7 @@ namespace GAudio
 					gain -= deltaGain;
 				}
 			}
-<<<<<<< Updated upstream
-=======
 			
->>>>>>> Stashed changes
 		}
 		
 		#endregion
