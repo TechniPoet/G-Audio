@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace GAudio.Examples
 {
@@ -19,7 +19,7 @@ namespace GAudio.Examples
 			yield return Application.RequestUserAuthorization( UserAuthorization.Microphone );
 			if (Application.HasUserAuthorization( UserAuthorization.Microphone ) ) 
 			{
-                SceneManager.LoadScene( 1 );
+				SceneManager.LoadScene( 1 );
 			} 
 			else
 			{

@@ -6,6 +6,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using GAudio;
 using UnityEngine.SceneManagement;
 
@@ -49,7 +50,12 @@ public class EnvelopeWindow : EditorWindow
 
 		EditorApplication.playmodeStateChanged   += DidChangePlayMode;
 		EditorApplication.hierarchyWindowChanged += OnHierarchyWindowChange;
+<<<<<<< Updated upstream
 	    __currentScene = SceneManager.GetActiveScene().ToString();
+=======
+
+		__currentScene = EditorSceneManager.GetActiveScene().ToString();//EditorApplication.currentScene;
+>>>>>>> Stashed changes
 	}
 
 	void DidChangePlayMode()
@@ -62,7 +68,11 @@ public class EnvelopeWindow : EditorWindow
 
 	void OnHierarchyWindowChange()
 	{
+<<<<<<< Updated upstream
 		if( __currentScene != SceneManager.GetActiveScene().ToString() )
+=======
+		if( __currentScene != EditorSceneManager.GetActiveScene().ToString() )
+>>>>>>> Stashed changes
 		{
 			this.Close();
 		}

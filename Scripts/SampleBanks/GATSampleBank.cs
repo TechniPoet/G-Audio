@@ -19,12 +19,16 @@ namespace GAudio
 	[ ExecuteInEditMode]
 	public class GATSampleBank : MonoBehaviour
 	{
+		public delegate void LoadDone();
+		public LoadDone LoadFinished;
+
 		/// <summary>
 		/// The sound bank that will be loaded
 		/// </summary>
 		public GATSoundBank SoundBank
 		{ 
-			get{ return _soundBank; } 
+			get{ return _soundBank; }
+            set { _soundBank = value; }
 		}
 		
 		public List< GATSoundBank > SoundBanks
@@ -112,17 +116,30 @@ namespace GAudio
 			}
 
 			if( _allSamples == null )
-				InitCollections();
-
-			Dictionary< string, GATData > loadedSamples = _soundBank.LoadAll( _allocationMode );
-
-			foreach( KeyValuePair< string, GATData > pair in loadedSamples )
 			{
-				AddSample( pair.Value, pair.Key );
+				InitCollections();
 			}
-		
-			_allKeys = null;
+			StopAllCoroutines();
+			UnitySingleton<CoroutineMaster>.Instance.StopAllCoroutines();
+			_soundBank.loadFinished += LoadNewSamples;
+			StartCoroutine(_soundBank.LoadAll( _allocationMode ));
 		}
+		
+
+		void LoadNewSamples(Dictionary<string, GATData> loadedSamples)
+		{
+			foreach (KeyValuePair<string, GATData> pair in loadedSamples)
+			{
+				AddSample(pair.Value, pair.Key);
+			}
+			_soundBank.loadFinished -= LoadNewSamples;
+			_allKeys = null;
+			if (LoadFinished != null)
+			{
+				LoadFinished();
+			}
+		}
+
 
 		/// <summary>
 		/// Loads specific samples from the referenced Sound Bank.

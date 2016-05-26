@@ -50,11 +50,18 @@ namespace GAudio
 			{
 				return _gain;
 			}
+<<<<<<< Updated upstream
 			private set
+=======
+            
+			protected set
+>>>>>>> Stashed changes
 			{
+                
 				_prevGain = _gain;
 				_gain = value;
 			}
+            
 		}
 		
 		float _prevGain = 0f;
