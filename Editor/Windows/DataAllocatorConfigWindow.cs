@@ -21,11 +21,7 @@ public class DataAllocatorConfigWindow : EditorWindow
 
 	void OnEnable()
 	{
-<<<<<<< Updated upstream
-		this.titleContent.text = "G-Audio Memory Configuration";
-=======
 		this.titleContent = new GUIContent("G-Audio Memory Configuration");
->>>>>>> Stashed changes
 	}
 
 	/*public void SetAllocator( GATDataAllocator allocator )

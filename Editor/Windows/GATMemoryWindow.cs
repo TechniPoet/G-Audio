@@ -43,13 +43,8 @@ public class GATMemoryWindow : EditorWindow
 		{
 			RefreshMemInfo();
 		}
-<<<<<<< Updated upstream
-        this.titleContent.text = "Memory Status";
-        
-=======
 
 		this.titleContent = new GUIContent("Memory Status");
->>>>>>> Stashed changes
 	}
 
 	void OnDisable()
